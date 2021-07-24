@@ -1,0 +1,28 @@
+@function rwdFont($level) {
+  // @return $px * 100/1366 + vw;
+  @return calc(#{$level * 1}rem + 0.15vw);
+}
+
+// 計算間距
+@function space($spaceLevel) {
+  @return ceil($space * $spaceLevel);
+}
+
+// 計算文字大小
+@function fontSize($level: 1) {
+  @return ceil($font-base-size * $level);
+}
+
+// 計算行高
+@function lineHeight($line-height-Level) {
+  @return ceil($fontBaseSize * $line-height-Level);
+}
+
+// px to rem
+@function rem($px) {
+  @if (unit($px) == 'px') {
+    @return #{($px/16px)}rem;
+  } @else {
+    @return #{($px/16)}rem;
+  }
+}

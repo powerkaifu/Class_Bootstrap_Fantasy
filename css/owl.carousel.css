@@ -1,0 +1,38 @@
+/*
+ *  Owl Carousel - Core
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+
+/* No Js */
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
