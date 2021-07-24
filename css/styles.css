@@ -56,6 +56,10 @@
     margin-top: calc(-2px - 1vw);
     margin-bottom: calc(-1px - 1vw);
   }
+  #section01 .content .frame h3, #section02 .content .frame h3, #section03 .content .frame h3 {
+    left: calc(50% - 10px);
+    top: -58px;
+  }
   #section01 .content::before, #section02 .content::before, #section03 .content::before {
     background: url(../images/frame_top.png) no-repeat center/contain;
   }
@@ -621,6 +625,12 @@ body {
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
+  }
+  #splitText p .charBg {
+    margin: 0.2rem;
+    text-shadow: 1px 1px 1px black;
+    -webkit-filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px yellow) drop-shadow(0 0 30px yellow);
+            filter: drop-shadow(0 0 5px white) drop-shadow(0 0 10px yellow) drop-shadow(0 0 30px yellow);
   }
 }
 
