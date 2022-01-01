@@ -195,7 +195,7 @@ body {
 
 /* home 輪播圖 ----------------------------------------------------------------------------------------*/
 #home {
-  height: 400px;
+  height: 350px;
   position: relative;
 }
 
@@ -614,7 +614,7 @@ body {
 
 @media (min-width: 992px) {
   #splitText {
-    font-size: 1.7rem;
+    font-size: 2rem;
     width: 1000px;
     height: 200px;
     display: -webkit-box;

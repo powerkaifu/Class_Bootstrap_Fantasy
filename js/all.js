@@ -317,16 +317,24 @@ const tl = gsap.timeline({
   repeat: -1,
   repeatDelay: 8
 })
+
+// 將段落轉陣列
 const paragraphs = gsap.utils.toArray('#splitText p')
-const splitText = paragraphs.map(function (p) {
+// console.log(paragraphs)
+
+// 對段落迭代循環，使用 建構式 new SplitText() 將各段落每個字分割成一個陣列，最後再放入新陣列 splitTexts
+// 所以，splitTexts 它是二維陣列
+const splitTexts = paragraphs.map(function (p) {
   return new SplitText(p, {
     charsClass: 'charBg'
   })
 })
+console.log(splitTexts)
 
 // 文字進場、退場動畫
-splitText.forEach(function (item) {
-  const chars = item.chars
+// 對 splitTexts 迭代循環，裡面的元素都是陣列，也就是我們用 new SplitText() 做出的陣列
+splitTexts.forEach(function (splitText) {
+  const chars = splitText.chars
   tl.from(
     chars, {
       y: 80,
