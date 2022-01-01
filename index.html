@@ -8,15 +8,17 @@
   <title>The Fantasy World</title>
   <!-- google font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap">
+
   <!-- bootstrap -->
   <link rel="stylesheet" href="./css/bootstrap-icons.css">
   <link rel="stylesheet" href="./css/bootstrap.css">
-  <!-- owl carousl -->
-  <link rel="stylesheet" href="./css/owl.carousel.css">
-  <link rel="stylesheet" href="./css/owl.theme.default.css">
+
+  <!-- swiper carousl -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+
   <!-- magnific-popup -->
-  <link rel="stylesheet" href="./magnific-popup/magnific-popup.css">
-  <link rel="stylesheet" href="./magnific-popup/magnific-popup-self.css">
+  <link rel="stylesheet" href="./css/magnific-popup/magnific-popup.css">
+  <link rel="stylesheet" href="./css/magnific-popup/magnific-popup-self.css">
   <!-- self -->
   <link rel="stylesheet" href="./css/styles.css">
 </head>
@@ -510,63 +512,85 @@
   <section id="section05" class="d-flex justify-content-center align-items-center">
     <div class=" container">
       <h1>文學作品</h1>
-      <div class="owl-carousel owl-theme">
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_01.jpg">
-            <img src="./images/book_01.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">魔戒</h5>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_01.jpg">
+                <img src="./images/book_01.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">魔戒</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_02.jpg">
+                <img src="./images/book_02.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">哈利波特</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_03.jpg">
+                <img src="./images/book_03.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">納尼亞傳奇</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_04.jpg">
+                <img src="./images/book_04.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">龍槍</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_05.jpg">
+                <img src="./images/book_05.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">黑塔</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_06.jpg">
+                <img src="./images/book_06.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">冰與火之歌</h5>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <div class="card">
+              <a class="image-popup-no-margins" href="./images/book_07.jpg">
+                <img src="./images/book_07.jpg" class="card-img-top">
+              </a>
+              <div class="card-body">
+                <h5 class="card-title">波西傑克森</h5>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_02.jpg">
-            <img src="./images/book_02.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">哈利波特</h5>
-          </div>
-        </div>
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_03.jpg">
-            <img src="./images/book_03.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">納尼亞傳奇</h5>
-          </div>
-        </div>
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_04.jpg">
-            <img src="./images/book_04.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">龍槍</h5>
-          </div>
-        </div>
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_05.jpg">
-            <img src="./images/book_05.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">黑塔</h5>
-          </div>
-        </div>
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_06.jpg">
-            <img src="./images/book_06.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">冰與火之歌</h5>
-          </div>
-        </div>
-        <div class="card">
-          <a class="image-popup-no-margins" href="./images/book_07.jpg">
-            <img src="./images/book_07.jpg" class="card-img-top">
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">波西傑克森</h5>
-          </div>
-        </div>
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- <div class="swiper-scrollbar"></div> -->
       </div>
     </div>
   </section>
@@ -630,7 +654,7 @@
       </div>
     </div>
     <div class="copyright">
-      <span>&copy; 2021 泰山職訓局網站設計實務整合範例</span>
+      <span>&copy; 2022 泰山職訓局網站設計實務整合範例</span>
     </div>
   </div>
 
@@ -645,7 +669,7 @@
   <div class="shooting_star"></div>
 
   <!-- 視差元素 -->
-  <div class="parallax">
+  <div class="float-parallax">
     <div class="float-wrap-01">
       <div class="float-island"></div>
     </div>
@@ -663,20 +687,19 @@
 
   <!-- jQuery -->
   <script src="./js/jquery-3.6.0.js"></script>
-  <!-- <script src="./fancybox/jquery-1.4.3.min.js"></script> -->
   <!-- Bootstrap -->
-  <script src="./js/bootstrap.bundle.js"></script>
-  <!-- owl carsouel -->
-  <script src="./js/owl.carousel.js"></script>
-  <script src="./js/owl_self.js"></script>
+  <script src="./js/bootstrap.bundle.min.js"></script>
+
+  <!-- swiper carsouel -->
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
   <!-- magnific-popup lightbox -->
-  <script src="./magnific-popup/jquery.magnific-popup.min.js"></script>
-  <script src="./magnific-popup/magnific-popup-self.js"></script>
+  <script src="./js/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="./js/magnific-popup/magnific-popup-self.js"></script>
   <!-- GSAP -->
-  <script src="./gsap/gsap.js"></script>
-  <script src="./gsap/ScrollTrigger.js"></script>
-  <script src="./gsap/ScrollToPlugin.js"></script>
-  <script src="./gsap/SplitText.min.js"></script>
+  <script src="./js/gsap/gsap.js"></script>
+  <script src="./js/gsap/ScrollTrigger.js"></script>
+  <script src="./js/gsap/ScrollToPlugin.js"></script>
+  <script src="./js/gsap/SplitText.min.js"></script>
   <!-- self js -->
   <script src="./js/all.js"></script>
 </body>

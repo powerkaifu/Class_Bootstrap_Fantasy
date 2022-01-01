@@ -1,14 +1,12 @@
 // 星空背景
 body {
   overflow-x: hidden;
-  @include lg {
-    background: url(../images/mask.png) no-repeat fixed 50% 0%/100%,
-      url(../images/night_sky.jpg) no-repeat fixed 50% 0%/100%;
-  }
+  background: url(../images/mask.png) no-repeat fixed 50% 0% / 100% 100%,
+    url(../images/night_sky.jpg) no-repeat fixed 50% 0%;
 }
 
 // 視差元素
-.parallax {
+.float-parallax {
   display: none;
   @include lg {
     width: 100%;

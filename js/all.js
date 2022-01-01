@@ -1,3 +1,35 @@
+// Navbar tooltip
+// 類陣列轉陣列
+
+// 第一種方式
+// var dom = [].slice.call(document.querySelectorAll('#navbar a'))
+
+// 第二種方式
+// var dom = Array.from(document.querySelectorAll('#navbar a'))
+
+// 第三種方式
+// var dom = [...document.querySelectorAll('.navbar-nav .nav-link')]
+// 回傳一個新陣列
+// var tooltipList = dom.map(function (item) {
+//   return new bootstrap.Tooltip(item, {
+//     offset: [0, 0],
+//     placement: 'top'
+//   })
+// })
+// 點選後所有 tooltip 消失，上一個 tooltip 不會有暫留的問題
+// $('.navbar-nav .nav-link').on('click', function (e) {
+//   tooltipList.forEach(function (item) {
+//     item.hide()
+//   })
+// })
+
+// -------------------------------------------------------------------------------------------------------------------------
+
+// Modal
+// 測試中 ---> 開啟 modal 不會讓 navbar 背景出現抖動
+// 這是因為開啟 modal 時，bootstrap 替 body 增加 overflow hidden，
+// 並且替 body、navabr 增加 padding-right，造成整個畫面寬度變寬，
+// 此時背景圖若有使用 background-position 水平設定 center，會讓背景變寬(因為整個畫面已經變寬)
 $('#reg_btn, #login_btn').on('click', function () {
   $('body,#navbar').css({
     overflow: 'auto',
@@ -11,11 +43,59 @@ $('#race a').on('click', function () {
   $(this).addClass('active')
 })
 
+// Swiper ----------------------------------------------------------------------------------------------------
+const swiper = new Swiper('.swiper', {
+  direction: 'horizontal',
+  loop: true,
+  speed: 1000,
+  spaceBetween: 15, // 換圖時圖片與圖片間的距離
+  centeredSlides: true, // 將 item 置中排列，開始時第一張會在正中間
+  autoplay: {
+    delay: 1000000, // 自動播放，設定幾秒播放下一張
+  },
+  slidesPerView: 'auto',
+  effect: "coverflow",
+  coverflowEffect: {
+    rotate: 50,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+    slideShadows: true,
+  },
+
+  breakpoints: {
+    576: {
+      slidesPerView: 2,
+    },
+    768: {
+      slidesPerView: 3,
+    },
+    920: {
+      slidesPerView: 3,
+    },
+    1200: {
+      slidesPerView: 4,
+    }
+  },
+
+  pagination: {
+    el: '.swiper-pagination',
+    dynamicBullets: false,
+    clickable: true,
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  }
+});
+
 // GSAP ------------------------------------------------------------------------------------------------------
 // 註冊 plugin
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText)
 
 // ScrollToPlugin 滑動效果 ------------------------------------------------------------------------------------
+// 須取消 bootstrap.css 的 scroll-behavior: smooth;
 $('#navbar .main-link,.backtop a').each(function (index, link) {
   $(this).on('click', function (e) {
     e.preventDefault() // 阻止 a 連結預設動作
@@ -41,12 +121,27 @@ $('#navbar .main-link,.backtop a').each(function (index, link) {
 })
 
 // 補間動畫 --------------------------------------------------------------------------------------------------
-// #navbar 動畫
-gsap.from('#navbar', {
-  y: -$('#navbar').height(),
-  duration: 2,
-  ease: 'back.inOut'
-})
+const tween = gsap.from('#navbar', {
+  yPercent: -100,
+  paused: false,
+  duration: 1,
+  ease: 'back.inOut',
+  // 沒有 trigger 觸發目標，整份文件是捲動監控
+  scrollTrigger: {
+    start: "top 60", // scroller-start 與 scroll-end 必須要有一個高度才能一開始觸發進入 onEnter 偵測的階段
+    end: () => '+=' + document.documentElement.scrollHeight, // end 整份文件高度
+    onEnter(self) {
+      console.log(self) // 該捲動軸實體
+      console.log(self.animation) // 捲動軸實體控制的動畫
+      self.animation.play() // 使用該實體讓動畫播放
+    },
+    onUpdate: (self) => {
+      console.log(self.direction) // 捲動軸方向，1 為往下，-1 為網下
+      self.direction === -1 ? self.animation.play() : self.animation.reverse() // -1 往上時正向播放，否則 1 往下時反向播放
+    },
+    markers: false
+  },
+});
 
 // 流星
 // 創建流星數目
@@ -60,7 +155,9 @@ function createStar(starNumber) {
 
 // 設定補間動畫預設值
 function setTween(stars) {
-  gsap.set('.shooting_star', { perspective: 800 })
+  gsap.set('.shooting_star', {
+    perspective: 800
+  })
   stars.forEach(function (star, index) {
     gsap.set(star, {
       transformOrigin: '0% 50% 100px',
@@ -72,12 +169,14 @@ function setTween(stars) {
   })
   return stars
 }
+
 function playTimeline(stars) {
-  const tl = gsap.timeline({ repeat: -1 })
+  const tl = gsap.timeline({
+    repeat: -1
+  })
   stars.forEach(function (star, index) {
     tl.to(
-      star,
-      {
+      star, {
         x: () => `-=${$(window).width() * 1.5}`,
         y: () => `+=${$(window).height() * 1.5}`,
         z: () => `random(50,500)`,
@@ -158,15 +257,13 @@ float_tl
     left: '-30%'
   })
   .from(
-    '.float-wrap-02',
-    {
+    '.float-wrap-02', {
       right: '-30%'
     },
     '<'
   )
   .from(
-    '.float-wrap-03',
-    {
+    '.float-wrap-03', {
       bottom: '-100%'
     },
     '<'
@@ -185,6 +282,7 @@ $('.float-island').each(function (index, island) {
 
 // 霧
 $('.fog').each(function (index, fog) {
+  // 設定 duration 為 0 的 fog 補間動畫
   gsap.set(fog, {
     width: '100%',
     height: '100%',
@@ -212,8 +310,13 @@ $('.fog').each(function (index, fog) {
 })
 
 // SplitText ------------------------------------------------------------------------------------------------
-gsap.set('#splitText', { perspective: 400 })
-const tl = gsap.timeline({ repeat: -1, repeatDelay: 8 })
+gsap.set('#splitText', {
+  perspective: 400
+})
+const tl = gsap.timeline({
+  repeat: -1,
+  repeatDelay: 8
+})
 const paragraphs = gsap.utils.toArray('#splitText p')
 const splitText = paragraphs.map(function (p) {
   return new SplitText(p, {
@@ -221,16 +324,16 @@ const splitText = paragraphs.map(function (p) {
   })
 })
 
+// 文字進場、退場動畫
 splitText.forEach(function (item) {
   const chars = item.chars
   tl.from(
-    chars,
-    {
+    chars, {
       y: 80,
       rotationX: 0,
       rotationY: 180,
       scale: 2,
-      transformOrigin: '0% 50% -100', // x,y,z
+      transformOrigin: '0% 50% -100', // x,y,z 變形原點定位
       opacity: 0,
       duration: 2,
       ease: 'back',

@@ -8,17 +8,6 @@
     height: 100%;
     object-fit: cover;
   }
-  .mask {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 5;
-    // 解說 background-size cover、contain、100% 之間的關係
-    background: url('../images/mask.png') no-repeat center/100% 100%;
-    pointer-events: none;
-  }
 
   // 左箭頭
   .carousel-control-prev {
@@ -42,5 +31,17 @@
   @include lg {
     height: 100vh;
     margin-top: 0;
+
+    .mask {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      // 解說 background-size cover、contain、100% 之間的關係
+      background: url('../images/mask.png') no-repeat center/100% 100%;
+      pointer-events: none;
+    }
   }
 }

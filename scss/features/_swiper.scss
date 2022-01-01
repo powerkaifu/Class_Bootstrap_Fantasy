@@ -1,0 +1,25 @@
+// swiper
+.swiper {
+  --swiper-theme-color: white;
+  height: 470px;
+  .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.5;
+  }
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    opacity: 1;
+  }
+  .swiper-button-next,
+  .swiper-button-prev {
+    margin-top: -40px;
+  }
+  @include sm {
+    height: 300px;
+  }
+  @include lg {
+    height: 360px;
+  }
+  @include xl {
+    height: 400px;
+  }
+}

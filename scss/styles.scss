@@ -8,7 +8,9 @@
 
 // 混合樣式
 @import './mixins/rwd';
-@import './mixins/frame';
+
+// 繼承樣式
+@import './extends/frame';
 
 // 全域設定
 @import 'global';
@@ -29,3 +31,4 @@
 @import './features/backtop';
 @import './features/parallax';
 @import './features/shooting_star';
+@import './features/swiper';
