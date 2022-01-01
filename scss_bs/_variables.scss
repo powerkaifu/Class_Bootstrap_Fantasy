@@ -1,4 +1,4 @@
-// *************************************** 有 4 個地方要修改 ***************************************
+// *************************************** 有 5 個地方要修改 ***************************************
 
 // Variables
 //
@@ -341,7 +341,9 @@ $enable-shadows: false !default;
 $enable-gradients: false !default;
 $enable-transitions: true !default;
 $enable-reduced-motion: true !default;
-$enable-smooth-scroll: true !default;
+// 專案修改
+// $enable-smooth-scroll: trur !default;
+$enable-smooth-scroll: false !default;
 $enable-grid-classes: true !default;
 $enable-cssgrid: false !default;
 $enable-button-pointers: true !default;

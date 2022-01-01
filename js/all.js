@@ -95,7 +95,7 @@ const swiper = new Swiper('.swiper', {
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger, SplitText)
 
 // ScrollToPlugin 滑動效果 ------------------------------------------------------------------------------------
-// 須取消 bootstrap.css 的 scroll-behavior: smooth;
+// 須取消 scroll-behavior: smooth，可從 _variables.scss 關閉 $enable-smooth-scroll: false
 $('#navbar .main-link,.backtop a').each(function (index, link) {
   $(this).on('click', function (e) {
     e.preventDefault() // 阻止 a 連結預設動作
@@ -121,11 +121,11 @@ $('#navbar .main-link,.backtop a').each(function (index, link) {
 })
 
 // 補間動畫 --------------------------------------------------------------------------------------------------
-const tween = gsap.from('#navbar', {
+// 導覽列滾動收合
+gsap.from('#navbar', {
   yPercent: -100,
   paused: false,
-  duration: 1,
-  ease: 'back.inOut',
+  duration: 0.5,
   // 沒有 trigger 觸發目標，整份文件是捲動監控
   scrollTrigger: {
     start: "top 60", // scroller-start 與 scroll-end 必須要有一個高度才能一開始觸發進入 onEnter 偵測的階段

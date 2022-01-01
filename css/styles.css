@@ -5,7 +5,7 @@
   padding: 0 3rem;
   background: url(../images/frame_middle_xs.png) repeat-y center/contain;
   margin-top: -25px;
-  margin-bottom: -25px;
+  margin-bottom: -30px;
   position: relative;
 }
 
@@ -87,6 +87,14 @@ body {
 /* navbar 導覽列 -------------------------------------------------------------------------------------------*/
 #navbar {
   background: #000;
+}
+
+#navbar .navbar-brand {
+  width: 75%;
+}
+
+#navbar .navbar-brand img {
+  width: 100%;
 }
 
 #navbar .nav-link {
@@ -187,7 +195,7 @@ body {
 
 /* home 輪播圖 ----------------------------------------------------------------------------------------*/
 #home {
-  margin-top: 60px;
+  height: 400px;
   position: relative;
 }
 
@@ -238,20 +246,34 @@ body {
 }
 
 /* section01 奇幻世界 --------------------------------------------------------------------------------------*/
+#section01 {
+  top: -50px;
+}
+
 @media (min-width: 992px) {
   #section01 {
+    top: 0;
     background: url(../images/section01_top_mask.png) no-repeat center top/100%;
   }
 }
 
 /* section02 典型要素 --------------------------------------------------------------------------------------*/
+#section02 {
+  top: -50px;
+}
+
 @media (min-width: 992px) {
   #section02 {
+    top: 0;
     margin-top: 90px;
   }
 }
 
 /* section03 生物種族 --------------------------------------------------------------------------------------*/
+#section03 {
+  top: -50px;
+}
+
 #section03 .nav-link {
   font-size: 1.2rem;
   padding: 0;
@@ -277,6 +299,7 @@ body {
 
 @media (min-width: 992px) {
   #section03 {
+    top: 0;
     margin-top: 90px;
   }
 }
@@ -557,6 +580,8 @@ body {
 .modal .modal-body {
   padding: 0 5rem;
   background: url(../images/login_register_body_02.png) no-repeat center/contain, url(../images/login_register_body_01.png) repeat-y center/100%;
+  margin-top: -10px;
+  margin-bottom: -10px;
 }
 
 .modal .modal-footer {

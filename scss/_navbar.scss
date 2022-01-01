@@ -1,6 +1,12 @@
 /* navbar 導覽列 -------------------------------------------------------------------------------------------*/
 #navbar {
   background: #000;
+  .navbar-brand {
+    width: 75%;
+    img {
+      width: 100%;
+    }
+  }
   .nav-link {
     font-size: rfs(1.2rem);
     text-align: right;

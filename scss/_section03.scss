@@ -1,6 +1,7 @@
 /* section03 生物種族 --------------------------------------------------------------------------------------*/
 #section03 {
   @extend %frame;
+  top: -50px;
   .nav-link {
     font-size: 1.2rem;
     padding: 0;
@@ -26,6 +27,7 @@
   }
 
   @include lg {
+    top: 0;
     margin-top: 90px;
   }
 }
